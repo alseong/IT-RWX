@@ -9,32 +9,7 @@ test-suites:
       command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
-        - 'tests/test-1000ms.test.js'
-        - 'tests/test-100ms.test.js'
-        - 'tests/test-10ms.test.js'
-        - 'tests/test-12000ms.test.js'
-        - 'tests/test-1200ms.test.js'
-        - 'tests/test-15000ms.test.js'
-        - 'tests/test-1500ms.test.js'
-        - 'tests/test-150ms.test.js'
-        - 'tests/test-1800ms.test.js'
-        - 'tests/test-1ms.test.js'
-        - 'tests/test-2000ms.test.js'
-        - 'tests/test-2500ms.test.js'
-        - 'tests/test-25ms.test.js'
-        - 'tests/test-3000ms.test.js'
-        - 'tests/test-300ms.test.js'
-        - 'tests/test-3500ms.test.js'
-        - 'tests/test-4000ms.test.js'
-        - 'tests/test-4500ms.test.js'
-        - 'tests/test-5000ms.test.js'
-        - 'tests/test-500ms.test.js'
-        - 'tests/test-50ms.test.js'
-        - 'tests/test-5ms.test.js'
-        - 'tests/test-600ms.test.js'
-        - 'tests/test-700ms.test.js'
-        - 'tests/test-8000ms.test.js'
-        - 'tests/test-800ms.test.js'
+        - 'tests/**/*.test.js'
 
 cloud:
   disabled: false
