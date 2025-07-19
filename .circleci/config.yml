@@ -17,72 +17,35 @@ jobs:
     parallelism: 4
     steps:
       - checkout
+      
       - run:
           name: Install Captain CLI
           command: |
-            # Install Captain using official method from https://www.rwx.com/docs/captain/getting-started/installing-the-cli
             tmp="$(mktemp -d)/captain" && \
               curl -o "$tmp" -fsSL "https://releases.captain.build/v1/linux/x86_64/captain" && \
               sudo install "$tmp" /usr/local/bin && \
               rm "$tmp" && \
               captain --version
-            echo "✅ Captain CLI installed successfully!"
+              
       - run:
-          name: Install npm dependencies
-          command: |
-            npm install
-            echo "✅ All dependencies installed!"
+          name: Install dependencies
+          command: npm install
+          
       - run:
           name: Create tmp directory
-          command: |
-            mkdir -p tmp
-            echo "✅ tmp directory created!"
-      - run:
-          name: Debug - Check test file discovery
-          command: |
-            echo "=== Test File Discovery Debug ==="
-            echo "Files matching tests/**/*.test.js:"
-            find tests/ -name "*.test.js" | sort
-            echo "Total test files found: $(find tests/ -name "*.test.js" | wc -l)"
-            echo "=============================================="
+          command: mkdir -p tmp
+          
       - run:
           name: Run Jest tests with Captain partitioning
           command: |
-            # Debug what CircleCI actually provides
-            echo "=== CircleCI Built-in Environment Variables ==="
-            echo "CIRCLE_REPOSITORY_URL: '${CIRCLE_REPOSITORY_URL:-NOT SET}'"
-            echo "CIRCLE_PROJECT_USERNAME: '${CIRCLE_PROJECT_USERNAME:-NOT SET}'"
-            echo "CIRCLE_PROJECT_REPONAME: '${CIRCLE_PROJECT_REPONAME:-NOT SET}'"
-            echo "RWX_ACCESS_TOKEN set: $([ -n "$RWX_ACCESS_TOKEN" ] && echo "YES" || echo "NO")"
-            echo "=============================================="
-            
-            # Show partition info
-            echo "=== Partition Debug ==="
-            echo "Running partition ${CIRCLE_NODE_INDEX} of ${CIRCLE_NODE_TOTAL}"
-            echo "========================="
-            
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL} --print-summary
-            echo "✅ Jest tests completed on partition ${CIRCLE_NODE_INDEX} of ${CIRCLE_NODE_TOTAL}"
           environment:
             CI: true
-            # RWX_ACCESS_TOKEN: ${RWX_ACCESS_TOKEN}  # Disabled for OSS mode
             CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
-      - run:
-          name: Debug - Check for test result files
-          command: |
-            echo "=== Checking for test result files ==="
-            echo "Current directory: $(pwd)"
-            echo "Files in tmp directory:"
-            ls -la tmp/ || echo "tmp directory doesn't exist"
-            echo "Looking for jest.xml:"
-            find . -name "jest.xml" -type f || echo "No jest.xml files found"
-            echo "Looking for any XML files:"
-            find . -name "*.xml" -type f || echo "No XML files found"
-            echo "All files in current directory:"
-            ls -la
-          when: always
+            
       - store_test_results:
           path: tmp
+          
       - store_artifacts:
           path: tmp
           destination: test-results
