@@ -9,4 +9,4 @@ test-suites:
       command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest.xml
       delimiter: '|'
       globs:
-        - 'tests/**/*.test.js'
+        - '**/*.test.js'
