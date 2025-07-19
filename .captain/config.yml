@@ -1,12 +1,12 @@
 test-suites:
   it-rwx-jest:
-    command: npx jest --json --testLocationInResults --outputFile tmp/jest.json
+    command: npx jest --testResultsProcessor=jest-junit --outputFile tmp/jest.xml
     results:
-      path: tmp/jest.json
+      path: tmp/jest.xml
     output:
       print-summary: true
     partition:
-      command: npx jest --testPathPattern {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest-${CIRCLE_NODE_INDEX}.json
+      command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
         - 'tests/test-*.test.js'

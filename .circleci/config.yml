@@ -45,7 +45,7 @@ jobs:
             
       - store_test_results:
           path: tmp
-          
+  
       - store_artifacts:
           path: tmp
           destination: test-results
