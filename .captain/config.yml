@@ -6,7 +6,14 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest.xml
+      command: |
+        echo "=== Captain Debug ==="
+        echo "Test files pattern: {{ testFiles }}"
+        echo "====================="
+        npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest.xml
       delimiter: '|'
       globs:
-        - '**/*.test.js'
+        - 'tests/**/*.test.js'
+      exclude:
+        - 'node_modules/**'
+        - 'coverage/**'
