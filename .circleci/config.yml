@@ -40,15 +40,12 @@ jobs:
       - run:
           name: Run Jest tests with Captain partitioning
           command: |
-            # Set repository URL for Captain
-            export CIRCLE_REPOSITORY_URL="https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
-            echo "Repository URL: $CIRCLE_REPOSITORY_URL"
             
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL} --print-summary
             echo "✅ Jest tests completed on partition ${CIRCLE_NODE_INDEX} of ${CIRCLE_NODE_TOTAL}"
           environment:
             CI: true
-            RWX_ACCESS_TOKEN: ${it-rwx}
+            RWX_ACCESS_TOKEN: ${RWX_ACCESS_TOKEN}
       - store_test_results:
           path: tmp
       - store_artifacts:
