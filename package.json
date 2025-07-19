@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "test": "jest --watchAll=false",
     "test:all": "jest --testPathPattern='(src|tests).*\\.(test|spec)\\.(js|jsx|ts|tsx)$' --watchAll=false",
+    "test:captain": "npx jest --json --testLocationInResults --outputFile tmp/jest.json --testPathPattern='tests.*\\.(test|spec)\\.(js|jsx|ts|tsx)$' --watchAll=false",
     "eject": "react-scripts eject"
   },
       "jest": {
