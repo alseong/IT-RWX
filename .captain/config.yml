@@ -8,7 +8,7 @@ test-suites:
     partition:
       command: |
         echo "=== Captain Debug ==="
-        echo "Test files pattern: {{ testFiles }}"
+        echo "Running Jest with partitioned test files..."
         echo "====================="
         npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest.xml
       delimiter: '|'
