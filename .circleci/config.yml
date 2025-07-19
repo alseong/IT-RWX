@@ -40,6 +40,7 @@ jobs:
             echo "✅ Jest tests completed on partition ${CIRCLE_NODE_INDEX} of ${CIRCLE_NODE_TOTAL}"
           environment:
             CI: true
+            RWX_ACCESS_TOKEN: ${it-rwx}
       - store_test_results:
           path: tmp
       - store_artifacts:
