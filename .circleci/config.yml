@@ -40,6 +40,13 @@ jobs:
       - run:
           name: Run Jest tests with Captain partitioning
           command: |
+            # Debug what CircleCI actually provides
+            echo "=== CircleCI Built-in Environment Variables ==="
+            echo "CIRCLE_REPOSITORY_URL: '${CIRCLE_REPOSITORY_URL:-NOT SET}'"
+            echo "CIRCLE_PROJECT_USERNAME: '${CIRCLE_PROJECT_USERNAME:-NOT SET}'"
+            echo "CIRCLE_PROJECT_REPONAME: '${CIRCLE_PROJECT_REPONAME:-NOT SET}'"
+            echo "RWX_ACCESS_TOKEN set: $([ -n "$RWX_ACCESS_TOKEN" ] && echo "YES" || echo "NO")"
+            echo "=============================================="
             
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL} --print-summary
             echo "✅ Jest tests completed on partition ${CIRCLE_NODE_INDEX} of ${CIRCLE_NODE_TOTAL}"
