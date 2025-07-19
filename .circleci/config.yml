@@ -53,6 +53,7 @@ jobs:
           environment:
             CI: true
             RWX_ACCESS_TOKEN: ${RWX_ACCESS_TOKEN}
+            CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
       - store_test_results:
           path: tmp
       - store_artifacts:
