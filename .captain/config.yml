@@ -14,6 +14,7 @@ test-suites:
       delimiter: '|'
       globs:
         - 'tests/**/*.test.js'
-      exclude:
-        - 'node_modules/**'
-        - 'coverage/**'
+
+cloud:
+  disabled: false
+    
