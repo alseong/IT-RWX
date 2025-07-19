@@ -9,7 +9,7 @@ test-suites:
       command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
-        - 'tests/**/*.test.js'
+        - '**/*.test.js'
 
 cloud:
   disabled: false
