@@ -20,10 +20,12 @@ jobs:
       - run:
           name: Install Captain CLI
           command: |
-            # Download and install Captain CLI
-            curl -L "https://github.com/rwx-research/captain/releases/download/v2.0.3/captain-linux-amd64.tar.gz" | tar xz
-            sudo mv captain /usr/local/bin/captain
-            captain --version
+            # Install Captain using official method from https://www.rwx.com/docs/captain/getting-started/installing-the-cli
+            tmp="$(mktemp -d)/captain" && \
+              curl -o "$tmp" -fsSL "https://releases.captain.build/v1/linux/x86_64/captain" && \
+              sudo install "$tmp" /usr/local/bin && \
+              rm "$tmp" && \
+              captain --version
             echo "✅ Captain CLI installed successfully!"
       - run:
           name: Install npm dependencies
