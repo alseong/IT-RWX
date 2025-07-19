@@ -1,4 +1,4 @@
-# 🧮 Simple React Calculator
+# IT-RWX - React Calculator
 
 A clean, modern calculator built with React that performs basic mathematical operations.
 
@@ -65,4 +65,4 @@ public/
 
 ---
 
-**Simple, Fast, Beautiful** ✨ 
+**Simple, Fast, Beautiful** ✨
