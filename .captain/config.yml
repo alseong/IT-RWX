@@ -6,10 +6,10 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: echo "=== Partition ${CIRCLE_NODE_INDEX} ===" && npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
+      command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
-        - 'tests/*.test.js'
+        - 'tests/**/*.test.js'
 
 cloud:
   disabled: false
