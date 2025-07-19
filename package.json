@@ -7,7 +7,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watchAll=false",
-    "test:all": "jest --testPathPattern='tests.*\\.(test|spec)\\.(js|jsx|ts|tsx)$' --watchAll=false",
     "eject": "react-scripts eject"
   },
       "jest": {
