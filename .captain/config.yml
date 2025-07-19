@@ -6,16 +6,11 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: |
-        echo "=== Captain Partition Debug ==="
-        echo "CIRCLE_NODE_INDEX: ${CIRCLE_NODE_INDEX}"
-        echo "CIRCLE_NODE_TOTAL: ${CIRCLE_NODE_TOTAL}"
-        echo "Current directory: $(pwd)"
-        echo "Test files found by glob:"
-        find tests/ -name "*.test.js" | head -10
-        echo "Total test files: $(find tests/ -name "*.test.js" | wc -l)"
-        echo "About to run Jest with partitioned files..."
-        echo "================================="
+      command: >
+        echo "=== Captain Partition Debug ===" &&
+        echo "NODE: ${CIRCLE_NODE_INDEX}/${CIRCLE_NODE_TOTAL}" &&
+        find tests/ -name "*.test.js" | head -3 &&
+        echo "Running Jest..." &&
         npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
