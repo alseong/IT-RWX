@@ -10,8 +10,3 @@ test-suites:
       delimiter: '|'
       globs:
         - 'tests/**/*.test.js'
-
-# Captain Cloud configuration
-cloud:
-  enabled: true
-  # The access token will be provided via RWX_ACCESS_TOKEN environment variable
