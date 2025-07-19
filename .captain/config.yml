@@ -6,12 +6,7 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: >
-        echo "=== Captain Partition Debug ===" &&
-        echo "NODE: ${CIRCLE_NODE_INDEX}/${CIRCLE_NODE_TOTAL}" &&
-        find tests/ -name "*.test.js" | head -3 &&
-        echo "Running Jest..." &&
-        npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
+      command: npx jest --testPathPattern {{ testFiles }} --testResultsProcessor=jest-junit --outputFile tmp/jest-node-${CIRCLE_NODE_INDEX}.xml
       delimiter: '|'
       globs:
         - 'tests/**/*.test.js'
