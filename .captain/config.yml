@@ -10,3 +10,7 @@ test-suites:
       delimiter: '|'
       globs:
         - 'tests/**/*.test.js'
+
+# Captain Cloud configuration
+cloud:
+  disabled: false
