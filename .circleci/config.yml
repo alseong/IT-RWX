@@ -36,6 +36,20 @@ jobs:
           command: mkdir -p tmp
           
       - run:
+          name: Test Captain authentication
+          command: |
+            echo "Testing Captain Cloud connection..."
+            captain --version
+            if [ -n "$RWX_ACCESS_TOKEN" ]; then
+              echo "✅ RWX_ACCESS_TOKEN is set"
+            else
+              echo "❌ RWX_ACCESS_TOKEN is not set"
+              exit 1
+            fi
+          environment:
+            RWX_ACCESS_TOKEN: ${RWX_ACCESS_TOKEN}
+            
+      - run:
           name: Run Jest tests with Captain partitioning
           command: |
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL} --print-summary
