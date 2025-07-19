@@ -38,6 +38,14 @@ jobs:
             mkdir -p tmp
             echo "✅ tmp directory created!"
       - run:
+          name: Debug - Check test file discovery
+          command: |
+            echo "=== Test File Discovery Debug ==="
+            echo "Files matching tests/**/*.test.js:"
+            find tests/ -name "*.test.js" | sort
+            echo "Total test files found: $(find tests/ -name "*.test.js" | wc -l)"
+            echo "=============================================="
+      - run:
           name: Run Jest tests with Captain partitioning
           command: |
             # Debug what CircleCI actually provides
