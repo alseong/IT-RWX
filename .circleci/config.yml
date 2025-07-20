@@ -41,7 +41,6 @@ jobs:
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL}
           environment:
             CI: true
-            #RWX_ACCESS_TOKEN: ${RWX_ACCESS_TOKEN}
             CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
             
       - store_test_results:
@@ -54,7 +53,8 @@ jobs:
 workflows:
   test:
     jobs:
-      - test-react-functionality
+      - test-react-functionality:
+          context: rwx
 
   
   

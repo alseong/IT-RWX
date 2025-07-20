@@ -6,10 +6,10 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: npx jest --testPathPattern {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest-${CIRCLE_NODE_INDEX}.json
-      delimiter: '|'
+      command: npx jest {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest.json
       globs:
         - 'tests/**/*.test.js'
+    
 
 
     
