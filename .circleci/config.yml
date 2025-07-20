@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Run Jest tests with Captain partitioning
           command: |
-            captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL}
+            captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL} --debug 
           environment:
             CI: true
             CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
