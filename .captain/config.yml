@@ -11,6 +11,5 @@ test-suites:
       globs:
         - 'tests/**/*.test.js'
 
-cloud:
-  disabled: false
+
     
