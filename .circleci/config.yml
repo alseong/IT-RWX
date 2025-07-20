@@ -47,7 +47,7 @@ jobs:
       - run:
           name: Update timing to RWX
           command: |
-            captain update results it-rwx-jest tmp/jest.json
+            captain update results it-rwx-jest tmp/jest.json --debug
           environment:
             CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
             

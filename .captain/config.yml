@@ -9,6 +9,8 @@ test-suites:
       command: npx jest {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest.json
       globs:
         - 'tests/**/*.test.js'
+
+        #test
     
 
 
