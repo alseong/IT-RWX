@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Update timing to RWX
           command: |
-            captain update it-rwx-jest tmp/jest.json
+            captain update results it-rwx-jest tmp/jest.json
             
       - store_test_results:
           path: tmp
