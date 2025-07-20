@@ -41,7 +41,12 @@ jobs:
             captain run it-rwx-jest --partition-index ${CIRCLE_NODE_INDEX} --partition-total ${CIRCLE_NODE_TOTAL}
           environment:
             CI: true
-            CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
+            #CIRCLE_REPOSITORY_URL: "https://github.com/alseong/IT-RWX"
+
+      - run:
+          name: Update timing to RWX
+          command: |
+            captain update it-rwx-jest tmp/jest.json
             
       - store_test_results:
           path: tmp
