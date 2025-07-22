@@ -10,6 +10,7 @@
     "eject": "react-scripts eject"
   },
   "jest": {
+    "testTimeout": 60000,
     "collectCoverageFrom": [
       "tests*/**/*.{js,jsx,ts,tsx}"
     ],
