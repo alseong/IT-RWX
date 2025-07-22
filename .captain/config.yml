@@ -8,10 +8,4 @@ test-suites:
     partition:
       command: npx jest {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest.json
       globs:
-        - 'tests/**/*.test.js'
-
-        #test
-    
-
-
-    
+        - "tests2/**/*.test.js"

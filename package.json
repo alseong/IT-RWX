@@ -9,22 +9,22 @@
     "test": "jest --watchAll=false",
     "eject": "react-scripts eject"
   },
-      "jest": {
-      "collectCoverageFrom": [
-        "tests/**/*.{js,jsx,ts,tsx}"
-      ],
-      "testMatch": [
-        "<rootDir>/tests/**/*.{js,jsx,ts,tsx}"
-      ],
-      "testPathIgnorePatterns": [
-        "<rootDir>/src/"
-      ],
-      "moduleNameMapper": {
-        "^.+\\.(css|less|scss|sass)$": "identity-obj-proxy",
-        "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
-      },
-      "resetMocks": true
+  "jest": {
+    "collectCoverageFrom": [
+      "tests*/**/*.{js,jsx,ts,tsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/test*/**/*.{js,jsx,ts,tsx}"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/"
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss|sass)$": "identity-obj-proxy",
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
     },
+    "resetMocks": true
+  },
   "babel": {
     "presets": [
       "react-app"
