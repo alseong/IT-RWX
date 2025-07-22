@@ -6,6 +6,8 @@ test-suites:
     output:
       print-summary: true
     partition:
-      command: npx jest {{ testFiles }} --json --testLocationInResults --outputFile tmp/jest.json
+      #command: npx jest {{ testFiles }} --json --testLocationInResults --coverage --outputFile tmp/jest.json
+      command: npx jest --testPathPattern '{{ testFiles }}' --json --testLocationInResults --outputFile tmp/jest.json
+      delimiter: "|"
       globs:
         - "tests2/**/*.test.js"
