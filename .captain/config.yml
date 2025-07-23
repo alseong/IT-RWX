@@ -11,3 +11,5 @@ test-suites:
       # delimiter: "|"
       globs:
         - "tests2/**/*.test.js"
+    # cloud:
+    #   disabled: false
